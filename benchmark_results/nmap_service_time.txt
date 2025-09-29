@@ -1,0 +1,3 @@
+Time: 0:09.94
+Memory: 56424 KB
+CPU: 4%

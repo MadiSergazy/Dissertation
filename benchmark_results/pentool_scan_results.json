@@ -1,0 +1,9 @@
+{
+  "id": "ee2fe0c5-d4a5-42f4-8165-d785896ed1ee",
+  "target": "scanme.nmap.org",
+  "status": "pending",
+  "total_ports": 17,
+  "open_ports": 0,
+  "created_at": "2025-09-29T18:38:30.998817Z",
+  "updated_at": "2025-09-29T18:38:30.998817Z"
+}

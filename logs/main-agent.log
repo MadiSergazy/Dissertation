@@ -1,0 +1,83 @@
+2025/09/29 23:36:32 Successfully connected to PostgreSQL
+2025/09/29 23:36:32 Successfully connected to NATS
+2025/09/29 23:36:32 Starting HTTP server on port 8080
+2025/09/29 23:36:32 Started listening for scan results
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:31 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to insert scan result: pq: column "is_open" of relation "scan_results" does not exist
+2025/09/29 23:38:32 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:33 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:34 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:35 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:36 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:37 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:38 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:39 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:40 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:41 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:42 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:43 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:44 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:45 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:46 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:47 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:48 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:49 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:50 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:51 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:52 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:53 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:54 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:56 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:57 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:58 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:38:59 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:00 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:01 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:02 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:03 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:04 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:05 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:06 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:07 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:08 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:09 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:10 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:11 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:12 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:13 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:14 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:15 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:17 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:18 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:19 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:20 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:21 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:22 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:23 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:24 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:25 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:26 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:27 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:28 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:29 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:30 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:31 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:32 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:33 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:33 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:39:33 Failed to query scan results: pq: relation "service_info" does not exist

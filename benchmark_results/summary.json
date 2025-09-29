@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-09-29T23:39:46+05:00",
+  "target": "scanme.nmap.org",
+  "tests": {
+    "pentool_common_ports": {
+      "time_ms": 62722,
+      "open_ports": 0,
+      "scan_id": "ee2fe0c5-d4a5-42f4-8165-d785896ed1ee"
+    },
+    "nmap_common_ports": {
+      "time_ms": 1018,
+      "open_ports": 2
+    },
+    "nmap_port_range_1_100": {
+      "time_ms": 1351,
+      "open_ports": 2
+    },
+    "nmap_service_detection": {
+      "time_ms": 9949
+    }
+  }
+}

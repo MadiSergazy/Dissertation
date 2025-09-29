@@ -1,0 +1,7 @@
+[36mINFO[0m[2025-09-29T23:36:38+05:00] Starting Analyzer Agent                      
+[36mINFO[0m[2025-09-29T23:36:38+05:00] Connecting to NATS                            [36murl[0m="nats://localhost:4222"
+[36mINFO[0m[2025-09-29T23:36:38+05:00] Successfully connected to NATS               
+[36mINFO[0m[2025-09-29T23:36:38+05:00] Subscribed to scan.result topic              
+[36mINFO[0m[2025-09-29T23:36:38+05:00] Analyzer Agent is running. Press Ctrl+C to stop 
+[36mINFO[0m[2025-09-29T23:38:32+05:00] Service detected and published                [36mport[0m=22 [36mservice[0m=SSH [36mtarget[0m=scanme.nmap.org [36mversion[0m="Ubuntu-2ubuntu2.13\r\n"
+[36mINFO[0m[2025-09-29T23:38:32+05:00] Service detected and published                [36mport[0m=80 [36mservice[0m=HTTP [36mtarget[0m=scanme.nmap.org [36mversion[0m="Apache/2.4.7 (Ubuntu)"

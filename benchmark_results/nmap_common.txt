@@ -1,0 +1,23 @@
+# Nmap 7.80 scan initiated Mon Sep 29 23:39:33 2025 as: nmap -p 21,22,23,25,80,110,443,445,3306,3389,5432,6379,8080,8443,27017 -oN benchmark_results/nmap_common.txt scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.24s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+
+PORT      STATE  SERVICE
+21/tcp    closed ftp
+22/tcp    open   ssh
+23/tcp    closed telnet
+25/tcp    closed smtp
+80/tcp    open   http
+110/tcp   closed pop3
+443/tcp   closed https
+445/tcp   closed microsoft-ds
+3306/tcp  closed mysql
+3389/tcp  closed ms-wbt-server
+5432/tcp  closed postgresql
+6379/tcp  closed redis
+8080/tcp  closed http-proxy
+8443/tcp  closed https-alt
+27017/tcp closed mongod
+
+# Nmap done at Mon Sep 29 23:39:34 2025 -- 1 IP address (1 host up) scanned in 0.99 seconds
