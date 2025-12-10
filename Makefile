@@ -1,4 +1,4 @@
-.PHONY: build run test clean docker-up docker-down install-deps init-db
+.PHONY: build run test clean docker-up docker-down install-deps init-db migrate-up migrate-down migrate-status migrate-reset
 
 # Build all agents
 build:
@@ -77,17 +77,48 @@ dev: install-deps docker-up init-db build
 	@echo "Development environment ready!"
 	@echo "Run 'make run-all' to start all agents"
 
+# Database migrations with Goose
+DB_URL := postgres://admin:secret123@localhost:5432/pentool?sslmode=disable
+
+migrate-up:
+	@echo "Running database migrations..."
+	@goose -dir migrations postgres "$(DB_URL)" up
+	@echo "Migrations applied!"
+
+migrate-down:
+	@echo "Rolling back last migration..."
+	@goose -dir migrations postgres "$(DB_URL)" down
+	@echo "Migration rolled back!"
+
+migrate-status:
+	@echo "Migration status:"
+	@goose -dir migrations postgres "$(DB_URL)" status
+
+migrate-reset:
+	@echo "Resetting database..."
+	@goose -dir migrations postgres "$(DB_URL)" reset
+	@echo "Database reset complete!"
+
+migrate-create:
+	@echo "Creating new migration: $(name)"
+	@goose -dir migrations create $(name) sql
+	@echo "Migration created!"
+
 # Show help
 help:
 	@echo "Available targets:"
-	@echo "  make build       - Build all agents"
-	@echo "  make docker-up   - Start Docker services"
-	@echo "  make docker-down - Stop Docker services"
-	@echo "  make init-db     - Initialize PostgreSQL database"
-	@echo "  make run         - Run main agent only"
-	@echo "  make run-all     - Run all agents"
-	@echo "  make test        - Run tests"
-	@echo "  make install-deps- Install Go dependencies"
-	@echo "  make clean       - Clean build artifacts and Docker volumes"
-	@echo "  make dev         - Setup development environment"
-	@echo "  make help        - Show this help message"
+	@echo "  make build         - Build all agents"
+	@echo "  make docker-up     - Start Docker services"
+	@echo "  make docker-down   - Stop Docker services"
+	@echo "  make init-db       - Initialize PostgreSQL database"
+	@echo "  make migrate-up    - Run database migrations (Goose)"
+	@echo "  make migrate-down  - Rollback last migration"
+	@echo "  make migrate-status- Check migration status"
+	@echo "  make migrate-reset - Reset all migrations"
+	@echo "  make run           - Run main agent only"
+	@echo "  make run-all       - Run all agents"
+	@echo "  make test          - Run tests"
+	@echo "  make install-deps  - Install Go dependencies"
+	@echo "  make clean         - Clean build artifacts and Docker volumes"
+	@echo "  make dev           - Setup development environment"
+	@echo "  make help          - Show this help message"

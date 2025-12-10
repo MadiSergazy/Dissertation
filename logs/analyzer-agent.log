@@ -5,3 +5,4 @@
 [36mINFO[0m[2025-09-29T23:36:38+05:00] Analyzer Agent is running. Press Ctrl+C to stop 
 [36mINFO[0m[2025-09-29T23:38:32+05:00] Service detected and published                [36mport[0m=22 [36mservice[0m=SSH [36mtarget[0m=scanme.nmap.org [36mversion[0m="Ubuntu-2ubuntu2.13\r\n"
 [36mINFO[0m[2025-09-29T23:38:32+05:00] Service detected and published                [36mport[0m=80 [36mservice[0m=HTTP [36mtarget[0m=scanme.nmap.org [36mversion[0m="Apache/2.4.7 (Ubuntu)"
+[33mWARN[0m[2025-09-29T23:51:06+05:00] Disconnected from NATS                        [33merror[0m=EOF

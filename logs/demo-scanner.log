@@ -1,0 +1,11 @@
+{"level":"info","msg":"Connected to NATS","time":"2025-09-30T19:21:37+05:00","url":"nats://localhost:4222"}
+{"level":"info","msg":"Subscribed to scan requests","time":"2025-09-30T19:21:37+05:00","topic":"scan.request"}
+{"level":"info","msg":"Scanner Agent started, waiting for scan requests...","time":"2025-09-30T19:21:37+05:00"}
+{"id":"f85ffdcc-a387-45ff-bb2c-06281616be37","level":"info","msg":"Received scan request","ports":17,"target":"scanme.nmap.org","time":"2025-09-30T19:21:59+05:00"}
+{"level":"info","msg":"Found open port","port":80,"target":"scanme.nmap.org","time":"2025-09-30T19:22:00+05:00"}
+{"level":"info","msg":"Found open port","port":22,"target":"scanme.nmap.org","time":"2025-09-30T19:22:00+05:00"}
+{"id":"f85ffdcc-a387-45ff-bb2c-06281616be37","level":"info","msg":"Completed port scan","ports":17,"target":"scanme.nmap.org","time":"2025-09-30T19:22:00+05:00"}
+{"level":"info","msg":"Received shutdown signal","time":"2025-09-30T19:26:14+05:00"}
+{"level":"info","msg":"Scanner Agent shutting down...","time":"2025-09-30T19:26:14+05:00"}
+{"level":"info","msg":"Closed NATS connection","time":"2025-09-30T19:26:14+05:00"}
+{"level":"info","msg":"Scanner Agent stopped","time":"2025-09-30T19:26:14+05:00"}

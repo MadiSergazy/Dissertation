@@ -81,3 +81,5 @@
 2025/09/29 23:39:33 Failed to query scan results: pq: relation "service_info" does not exist
 2025/09/29 23:39:33 Failed to query scan results: pq: relation "service_info" does not exist
 2025/09/29 23:39:33 Failed to query scan results: pq: relation "service_info" does not exist
+2025/09/29 23:51:06 NATS disconnected: EOF
+2025/09/30 00:21:58 NATS reconnected
