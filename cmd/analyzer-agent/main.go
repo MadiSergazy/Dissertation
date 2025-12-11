@@ -24,8 +24,10 @@ var log = logrus.New()
 
 type ScanResult struct {
 	ID     string `json:"id"`
+	ScanID string `json:"scan_id"`
 	Target string `json:"target"`
 	Port   int    `json:"port"`
+	State  string `json:"state"`
 	IsOpen bool   `json:"is_open"`
 	Error  string `json:"error,omitempty"`
 }
@@ -112,7 +114,8 @@ func (sd *ServiceDetector) Subscribe() error {
 			return
 		}
 
-		if result.IsOpen {
+		// Support both IsOpen (bool) and State (string) fields for compatibility
+		if result.IsOpen || result.State == "open" {
 			sd.wg.Add(1)
 			go func() {
 				defer sd.wg.Done()

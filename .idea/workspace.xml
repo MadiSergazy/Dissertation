@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac2fea9a-310a-414b-8ded-b72d7d9ae75d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/analyzer-agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/analyzer-agent.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/main-agent.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/main-agent.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/benchmark_results/summary.json" beforeDir="false" afterPath="$PROJECT_DIR$/benchmark_results/summary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/analyzer-agent/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/analyzer-agent/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/reporter-agent/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/reporter-agent/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/scanner-agent/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/scanner-agent/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployments/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deployments/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/init-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/init-db.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,32 +32,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Makefile Target.docker-down.executor": "Run",
-    "Makefile Target.docker-up.executor": "Run",
-    "Makefile Target.init-db.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginOnboardingV2": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "lastKnownCommit:L2hvbWUvbWFkaS9wZW50b29s": "75c5fd00904c168a41f09bbeb07eef19d652ece6",
-    "last_opened_file_path": "/home/madi",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Makefile Target.docker-down.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.docker-up.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.init-db.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboardingV2&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;lastKnownCommit:L2hvbWUvbWFkaS9wZW50b29s&quot;: &quot;ecf8ecba9549add5b449b53e972a3dfa671a4bc9&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/madi/pentool&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager" selected="Makefile Target.init-db">
     <configuration name="docker-down" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="docker-down" workingDirectory="" arguments="">

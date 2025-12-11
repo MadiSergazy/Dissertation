@@ -1,4 +1,4 @@
-.PHONY: build run test clean docker-up docker-down install-deps init-db migrate-up migrate-down migrate-status migrate-reset
+.PHONY: build run test clean docker-up docker-down docker-status docker-restart docker-logs install-deps init-db migrate-up migrate-down migrate-status migrate-reset start stop status restart logs
 
 # Build all agents
 build:
@@ -32,6 +32,37 @@ docker-down:
 	@echo "Stopping Docker services..."
 	@docker-compose -f deployments/docker-compose.yml down
 	@echo "Services stopped!"
+
+# Show docker services status
+docker-status:
+	@docker-compose -f deployments/docker-compose.yml ps
+
+# Restart docker services
+docker-restart: docker-down docker-up
+	@echo "Services restarted!"
+
+# Show docker logs
+docker-logs:
+	@docker-compose -f deployments/docker-compose.yml logs -f
+
+# ===========================================
+# Short aliases for quick access
+# ===========================================
+
+# Start services (alias for docker-up)
+start: docker-up
+
+# Stop services (alias for docker-down)
+stop: docker-down
+
+# Show status (alias for docker-status)
+status: docker-status
+
+# Restart services (alias for docker-restart)
+restart: docker-restart
+
+# Show logs (alias for docker-logs)
+logs: docker-logs
 
 # Run main agent
 run: docker-up
@@ -78,7 +109,7 @@ dev: install-deps docker-up init-db build
 	@echo "Run 'make run-all' to start all agents"
 
 # Database migrations with Goose
-DB_URL := postgres://admin:secret123@localhost:5432/pentool?sslmode=disable
+DB_URL := postgres://admin:secret123@localhost:15433/pentool?sslmode=disable
 
 migrate-up:
 	@echo "Running database migrations..."
@@ -106,19 +137,27 @@ migrate-create:
 
 # Show help
 help:
-	@echo "Available targets:"
+	@echo "=== Docker Services (Quick Commands) ==="
+	@echo "  make start         - Start all services (PostgreSQL, NATS, Redis)"
+	@echo "  make stop          - Stop all services"
+	@echo "  make status        - Show services status"
+	@echo "  make restart       - Restart all services"
+	@echo "  make logs          - Show services logs (follow mode)"
+	@echo ""
+	@echo "=== Build & Run ==="
 	@echo "  make build         - Build all agents"
-	@echo "  make docker-up     - Start Docker services"
-	@echo "  make docker-down   - Stop Docker services"
-	@echo "  make init-db       - Initialize PostgreSQL database"
-	@echo "  make migrate-up    - Run database migrations (Goose)"
-	@echo "  make migrate-down  - Rollback last migration"
-	@echo "  make migrate-status- Check migration status"
-	@echo "  make migrate-reset - Reset all migrations"
 	@echo "  make run           - Run main agent only"
 	@echo "  make run-all       - Run all agents"
 	@echo "  make test          - Run tests"
+	@echo ""
+	@echo "=== Database ==="
+	@echo "  make init-db       - Initialize PostgreSQL database"
+	@echo "  make migrate-up    - Run database migrations"
+	@echo "  make migrate-down  - Rollback last migration"
+	@echo "  make migrate-status- Check migration status"
+	@echo "  make migrate-reset - Reset all migrations"
+	@echo ""
+	@echo "=== Setup & Cleanup ==="
 	@echo "  make install-deps  - Install Go dependencies"
+	@echo "  make dev           - Setup full dev environment"
 	@echo "  make clean         - Clean build artifacts and Docker volumes"
-	@echo "  make dev           - Setup development environment"
-	@echo "  make help          - Show this help message"

@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS scan_results (
     port INTEGER NOT NULL,
     protocol VARCHAR(10) DEFAULT 'tcp',
     state VARCHAR(20) DEFAULT 'unknown' CHECK (state IN ('open', 'closed', 'filtered', 'unknown')),
+    is_open BOOLEAN DEFAULT false,
+    error VARCHAR(255),
     created_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -65,3 +67,6 @@ $$ language 'plpgsql';
 DROP TRIGGER IF EXISTS update_scans_updated_at ON scans;
 CREATE TRIGGER update_scans_updated_at BEFORE UPDATE ON scans
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+-- Create service_info view as alias for services table (for main-agent compatibility)
+CREATE OR REPLACE VIEW service_info AS SELECT * FROM services;

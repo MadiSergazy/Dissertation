@@ -19,8 +19,8 @@ const (
 	natsURL      = "nats://localhost:4222"
 	scanRequest  = "scan.request"
 	scanResult   = "scan.result"
-	maxWorkers   = 10
-	portTimeout  = 1 * time.Second
+	maxWorkers   = 100                     // 10 → 100: все 15 портов сканируются параллельно
+	portTimeout  = 300 * time.Millisecond // 1s → 300ms: ускорение таймаута
 )
 
 var topPorts = []int{
@@ -30,6 +30,7 @@ var topPorts = []int{
 
 type ScannerAgent struct {
 	nc     *nats.Conn
+	js     nats.JetStreamContext
 	logger *logrus.Logger
 	ctx    context.Context
 	cancel context.CancelFunc
@@ -43,8 +44,10 @@ type ScanRequest struct {
 
 type ScanResult struct {
 	ID     string `json:"id"`
+	ScanID string `json:"scan_id"`
 	Target string `json:"target"`
 	Port   int    `json:"port"`
+	State  string `json:"state"`
 	IsOpen bool   `json:"is_open"`
 	Error  string `json:"error,omitempty"`
 }
@@ -68,9 +71,15 @@ func (sa *ScannerAgent) Connect() error {
 	if err != nil {
 		return fmt.Errorf("failed to connect to NATS: %w", err)
 	}
-
 	sa.nc = nc
-	sa.logger.WithField("url", natsURL).Info("Connected to NATS")
+
+	js, err := nc.JetStream()
+	if err != nil {
+		return fmt.Errorf("failed to create JetStream context: %w", err)
+	}
+	sa.js = js
+
+	sa.logger.WithField("url", natsURL).Info("Connected to NATS with JetStream")
 	return nil
 }
 
@@ -107,6 +116,16 @@ func (sa *ScannerAgent) handleScanRequest(msg *nats.Msg) {
 }
 
 func (sa *ScannerAgent) scanPorts(scanID, target string, ports []int) {
+	startTime := time.Now()
+
+	sa.logger.WithFields(logrus.Fields{
+		"id":          scanID,
+		"target":      target,
+		"ports":       len(ports),
+		"max_workers": maxWorkers,
+		"timeout":     portTimeout,
+	}).Info("Starting port scan")
+
 	// Channel for collecting results
 	results := make(chan ScanResult, len(ports))
 
@@ -145,19 +164,23 @@ func (sa *ScannerAgent) scanPorts(scanID, target string, ports []int) {
 		}
 	}
 
+	duration := time.Since(startTime)
 	sa.logger.WithFields(logrus.Fields{
-		"id":     scanID,
-		"target": target,
-		"ports":  len(ports),
+		"id":       scanID,
+		"target":   target,
+		"ports":    len(ports),
+		"duration": duration,
 	}).Info("Completed port scan")
 }
 
 func (sa *ScannerAgent) scanPort(scanID, target string, port int) ScanResult {
 	result := ScanResult{
 		ID:     scanID,
+		ScanID: scanID,
 		Target: target,
 		Port:   port,
 		IsOpen: false,
+		State:  "closed",
 	}
 
 	address := fmt.Sprintf("%s:%d", target, port)
@@ -167,8 +190,10 @@ func (sa *ScannerAgent) scanPort(scanID, target string, port int) ScanResult {
 		// Port is closed or filtered
 		if netErr, ok := err.(net.Error); ok && netErr.Timeout() {
 			result.Error = "timeout"
+			result.State = "filtered"
 		} else {
 			result.Error = "connection_refused"
+			result.State = "closed"
 		}
 		sa.logger.WithFields(logrus.Fields{
 			"target": target,
@@ -181,6 +206,7 @@ func (sa *ScannerAgent) scanPort(scanID, target string, port int) ScanResult {
 	// Port is open
 	conn.Close()
 	result.IsOpen = true
+	result.State = "open"
 
 	sa.logger.WithFields(logrus.Fields{
 		"target": target,
@@ -196,7 +222,7 @@ func (sa *ScannerAgent) publishResult(result ScanResult) error {
 		return fmt.Errorf("failed to marshal result: %w", err)
 	}
 
-	if err := sa.nc.Publish(scanResult, data); err != nil {
+	if _, err := sa.js.Publish(scanResult, data); err != nil {
 		return fmt.Errorf("failed to publish result: %w", err)
 	}
 
@@ -205,7 +231,7 @@ func (sa *ScannerAgent) publishResult(result ScanResult) error {
 		"target": result.Target,
 		"port":   result.Port,
 		"open":   result.IsOpen,
-	}).Debug("Published scan result")
+	}).Debug("Published scan result via JetStream")
 
 	return nil
 }

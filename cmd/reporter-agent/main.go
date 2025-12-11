@@ -19,11 +19,16 @@ import (
 )
 
 const (
-	resultTimeout    = 30 * time.Second
-	maxResultsWait   = 20
-	natsURL         = "nats://localhost:4222"
-	postgresConnStr = "postgres://admin:password@localhost/pentool?sslmode=disable"
+	resultTimeout  = 30 * time.Second
+	maxResultsWait = 20
 )
+
+func getEnv(key, defaultValue string) string {
+	if value := os.Getenv(key); value != "" {
+		return value
+	}
+	return defaultValue
+}
 
 type ReporterAgent struct {
 	nc              *nats.Conn
@@ -63,6 +68,9 @@ func NewReporterAgent() (*ReporterAgent, error) {
 	logger := logrus.New()
 	logger.SetFormatter(&logrus.JSONFormatter{})
 	logger.SetLevel(logrus.InfoLevel)
+
+	natsURL := getEnv("NATS_URL", "nats://localhost:4222")
+	postgresConnStr := getEnv("DATABASE_URL", "postgres://admin:secret123@localhost:15433/pentool?sslmode=disable")
 
 	// Connect to NATS
 	nc, err := nats.Connect(natsURL)

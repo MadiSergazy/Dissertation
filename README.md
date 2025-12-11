@@ -80,6 +80,82 @@ make test        # Run tests
 make clean       # Clean everything
 ```
 
+## 🚀 Manual Agent Startup
+
+If you need to run agents manually (for debugging or development):
+
+### Step 1: Start Infrastructure
+```bash
+# Start Docker services (NATS, PostgreSQL, Redis)
+docker-compose -f deployments/docker-compose.yml up -d
+
+# Verify services are running
+docker-compose -f deployments/docker-compose.yml ps
+
+# Initialize database (first time only)
+docker exec -i pentool-postgres psql -U admin -d pentool < scripts/init-db.sql
+```
+
+### Step 2: Environment Variables
+```bash
+# Required environment variables
+export DATABASE_URL="postgres://admin:secret123@localhost:15433/pentool?sslmode=disable"
+export NATS_URL="nats://localhost:4222"
+```
+
+### Step 3: Run Agents (in separate terminals)
+
+**Terminal 1 - Main Agent (REST API):**
+```bash
+DATABASE_URL="postgres://admin:secret123@localhost:15433/pentool?sslmode=disable" \
+NATS_URL="nats://localhost:4222" \
+go run cmd/main-agent/main.go
+```
+
+**Terminal 2 - Scanner Agent:**
+```bash
+NATS_URL="nats://localhost:4222" \
+go run cmd/scanner-agent/main.go
+```
+
+**Terminal 3 - Analyzer Agent:**
+```bash
+NATS_URL="nats://localhost:4222" \
+go run cmd/analyzer-agent/main.go
+```
+
+**Terminal 4 - Reporter Agent:**
+```bash
+DATABASE_URL="postgres://admin:secret123@localhost:15433/pentool?sslmode=disable" \
+NATS_URL="nats://localhost:4222" \
+go run cmd/reporter-agent/main.go
+```
+
+### Step 4: Test the System
+```bash
+# Health check
+curl http://localhost:8080/health
+
+# Run a scan
+curl -X POST http://localhost:8080/scan \
+  -H "Content-Type: application/json" \
+  -d '{"target":"scanme.nmap.org"}'
+
+# Check results (replace {scan-id} with actual ID)
+curl http://localhost:8080/scan/{scan-id}
+```
+
+### Port Configuration
+| Service    | Default Port | Current Port |
+|------------|--------------|--------------|
+| Main Agent | 8080         | 8080         |
+| NATS       | 4222         | 4222         |
+| NATS HTTP  | 8222         | 8222         |
+| PostgreSQL | 5432         | **15433**    |
+| Redis      | 6379         | **16380**    |
+
+> **Note:** PostgreSQL and Redis use non-standard ports to avoid conflicts with other local services.
+
 ## 🎓 Academic Research Value
 
 **Technical Demonstrations:**
