@@ -6,19 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ac2fea9a-310a-414b-8ded-b72d7d9ae75d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benchmark_results/summary.json" beforeDir="false" afterPath="$PROJECT_DIR$/benchmark_results/summary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/analyzer-agent/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/analyzer-agent/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/reporter-agent/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/reporter-agent/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/scanner-agent/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/scanner-agent/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployments/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deployments/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/init-db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/init-db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/analyzer-agent" beforeDir="false" afterPath="$PROJECT_DIR$/bin/analyzer-agent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/reporter-agent" beforeDir="false" afterPath="$PROJECT_DIR$/bin/reporter-agent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/scanner-agent" beforeDir="false" afterPath="$PROJECT_DIR$/bin/scanner-agent" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="80" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.7.linux-amd64" />
   <component name="Git.Settings">
@@ -51,7 +50,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;lastKnownCommit:L2hvbWUvbWFkaS9wZW50b29s&quot;: &quot;ecf8ecba9549add5b449b53e972a3dfa671a4bc9&quot;,
+    &quot;lastKnownCommit:L2hvbWUvbWFkaS9wZW50b29s&quot;: &quot;05473ae06c74f171e29848303ab563fa938830a6&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/madi/pentool&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,

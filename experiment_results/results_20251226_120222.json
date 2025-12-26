@@ -1,0 +1,65 @@
+{
+  "experiment_date": "2025-12-26",
+  "environment": {
+    "os": "Ubuntu 22.04.5 LTS",
+    "go_version": "go1.24.7",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700H",
+    "ram": "15GB",
+    "nmap_version": "Nmap version 7.80 ( https://nmap.org )"
+  },
+  "volume_comparison": {
+    "100_ports": {
+      "pentool": 0.417,
+      "nmap": 0.615,
+      "pentool_stdev": 0.003,
+      "nmap_stdev": 0.065,
+      "speedup": 1.47
+    },
+    "500_ports": {
+      "pentool": 1.32,
+      "nmap": 2.648,
+      "pentool_stdev": 0.002,
+      "nmap_stdev": 0.149,
+      "speedup": 2.01
+    },
+    "1000_ports": {
+      "pentool": 2.56,
+      "nmap": 3.857,
+      "pentool_stdev": 0.057,
+      "nmap_stdev": 0.138,
+      "speedup": 1.51
+    },
+    "2000_ports": {
+      "pentool": 5.05,
+      "nmap": 6.229,
+      "pentool_stdev": 0.007,
+      "nmap_stdev": 0.036,
+      "speedup": 1.23
+    },
+    "5000_ports": {
+      "pentool": 12.393,
+      "nmap": 13.535,
+      "pentool_stdev": 0.002,
+      "nmap_stdev": 0.212,
+      "speedup": 1.09
+    }
+  },
+  "scalability": {
+    "1_agent": {
+      "time_sec": 2.624,
+      "ports_per_min": 22863.0,
+      "efficiency": 100.0
+    }
+  },
+  "break_even_point": {
+    "10000_ports": {
+      "pentool": 24.557,
+      "nmap": 25.366,
+      "ratio": 0.968
+    }
+  },
+  "observations": [
+    "Scalability experiment requires manual setup of multiple scanner agents via docker-compose",
+    "Break-even point found: Pentool faster at 10000 ports"
+  ]
+}

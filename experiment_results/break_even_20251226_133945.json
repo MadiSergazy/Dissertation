@@ -1,0 +1,29 @@
+{
+  "experiment_date": "2025-12-26",
+  "experiment_type": "break_even_analysis",
+  "target": "scanme.nmap.org",
+  "runs_per_test": 2,
+  "break_even_data": {
+    "10000_ports": {
+      "pentool": 13.283,
+      "nmap": 26.085,
+      "ratio": 0.509,
+      "speedup": 1.96,
+      "pentool_faster": true
+    },
+    "20000_ports": {
+      "pentool": 23.305,
+      "nmap": 50.032,
+      "ratio": 0.466,
+      "speedup": 2.15,
+      "pentool_faster": true
+    },
+    "30000_ports": {
+      "pentool": 36.825,
+      "nmap": 73.423,
+      "ratio": 0.502,
+      "speedup": 1.99,
+      "pentool_faster": true
+    }
+  }
+}
